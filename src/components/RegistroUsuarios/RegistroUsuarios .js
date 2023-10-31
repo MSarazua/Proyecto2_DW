@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RegistroUsuarios.css';
+import Axios from 'axios'; // Asegúrate de importar Axios
 
 const RegistroUsuarios = () => {
   const [formData, setFormData] = useState({
@@ -23,15 +23,40 @@ const RegistroUsuarios = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const validateEmail = (email) => {
+    // Validación simple de dirección de correo electrónico
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validateNIT = (nit) => {
+    // Validación simple de NIT (ejemplo: 123456-7)
+    return /^\d{6}-\d{1}$/.test(nit);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Realiza validaciones aquí (correo electrónico, NIT, contraseña, etc.)
-    // Realiza la llamada a la API para registrar al usuario
+    
+    // Realizar las validaciones aquí
+    if (!validateEmail(formData.CorreoElectronico)) {
+      setErrorMessage('El correo electrónico no es válido.');
+      return;
+    }
+
+    if (!validateNIT(formData.NIT)) {
+      setErrorMessage('El NIT no es válido.');
+      return;
+    }
+
+    // Realizar la llamada a la API para registrar al usuario
     try {
-      // Aquí deberías hacer la llamada a la API con Axios u otra biblioteca
-      // y manejar las respuestas y errores según lo necesites
+      // Realizar la llamada a la API utilizando Axios
+      const response = await Axios.post('http://localhost:3000/api/registro/10', formData);
+      // Manejar la respuesta de la API según tus necesidades
+      console.log('Respuesta de la API:', response.data);
     } catch (error) {
       // Manejar errores de la llamada a la API
+      console.error('Error al llamar a la API:', error);
+      setErrorMessage('Error al registrar al usuario. Inténtelo de nuevo.');
     }
   };
 
@@ -39,12 +64,11 @@ const RegistroUsuarios = () => {
     <div className="registro-usuarios">
       <h2>Registro de Usuarios</h2>
       <form onSubmit={handleSubmit}>
-        {/* Campos del formulario */}
         <input
           type="number"
           name="DPI"
           placeholder="DPI"
-          value={formData.Nombres}
+          value={formData.DPI}
           onChange={handleChange}
         />
         <input
@@ -54,7 +78,69 @@ const RegistroUsuarios = () => {
           value={formData.Nombres}
           onChange={handleChange}
         />
-        {/* Otros campos del formulario aquí */}
+        <input
+          type="text"
+          name="Apellidos"
+          placeholder="Apellidos"
+          value={formData.Apellidos}
+          onChange={handleChange}
+        />
+        <input
+          type="date"
+          name="FechaNacimiento"
+          placeholder="Fecha de Nacimiento"
+          value={formData.FechaNacimiento}
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="Clave"
+          placeholder="Contraseña"
+          value={formData.Clave}
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="ValidacionClave"
+          placeholder="Confirmar Contraseña"
+          value={formData.ValidacionClave}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="DireccionEntrega"
+          placeholder="Dirección de Entrega"
+          value={formData.DireccionEntrega}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="NIT"
+          placeholder="NIT"
+          value={formData.NIT}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="NúmeroTelefonico"
+          placeholder="Número Telefónico"
+          value={formData.NúmeroTelefonico}
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="CorreoElectronico"
+          placeholder="Correo Electrónico"
+          value={formData.CorreoElectronico}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="Rol"
+          placeholder="Rol"
+          value={formData.Rol}
+          onChange={handleChange}
+        />
         <button type="submit">Registrarse</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -62,4 +148,4 @@ const RegistroUsuarios = () => {
   );
 };
 
-export default RegistroUsuarios; 
+export default RegistroUsuarios;
