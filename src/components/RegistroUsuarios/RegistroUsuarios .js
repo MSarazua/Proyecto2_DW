@@ -16,7 +16,24 @@ const RegistroUsuarios = () => {
     Rol: '',
   });
 
+  const resetForm = () => {
+    setFormData({
+      DPI: '',
+      Nombres: '',
+      Apellidos: '',
+      FechaNacimiento: '',
+      Clave: '',
+      ValidacionClave: '',
+      DireccionEntrega: '',
+      NIT: '',
+      NúmeroTelefonico: '',
+      CorreoElectronico: '',
+      Rol: '',
+    });
+  };
+
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,8 +68,9 @@ const RegistroUsuarios = () => {
     try {
       // Realizar la llamada a la API utilizando Axios
       const response = await Axios.post('http://localhost:3000/api/registro/10', formData);
-      // Manejar la respuesta de la API según tus necesidades
       console.log('Respuesta de la API:', response.data);
+      setSuccessMessage('Usuario registrado exitosamente.');
+      resetForm();
     } catch (error) {
       // Manejar errores de la llamada a la API
       console.error('Error al llamar a la API:', error);
@@ -144,6 +162,7 @@ const RegistroUsuarios = () => {
         <button type="submit">Registrarse</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {successMessage && <p className="success-message">{successMessage}</p>}
     </div>
   );
 };
