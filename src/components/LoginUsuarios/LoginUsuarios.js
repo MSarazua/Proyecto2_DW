@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginUsuarios = () => {
   const [formData, setFormData] = useState({
     CorreoElectronico: '',
     Clave: '',
   });
+
+  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -20,12 +23,15 @@ const LoginUsuarios = () => {
 
     try {
       const response = await Axios.post('http://localhost:3000/api/login', formData);
-      console.log('Respuesta de la API:', response.data);
 
       if (response.data.Token) {
         setSuccessMessage('Inicio de sesión exitoso.');
         setErrorMessage('');
-        // Aquí puedes redirigir al usuario a la página de inicio o realizar otras acciones después del inicio de sesión exitoso
+        const DPI = response.data.DPI;
+        const token = response.data.Token;
+
+        navigate(`/perfil/${DPI}/${token}`, { state: { token, dpi: DPI } });
+
       } else {
         setSuccessMessage('');
         setErrorMessage('Correo electrónico o contraseña incorrectos.');
