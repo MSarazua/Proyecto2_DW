@@ -9,7 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <Routes>
-      <Route exact path="/registro" element={<RegistroUsuarios/>} />
+      <Route exact path="/" element={<RegistroUsuarios/>} />
       <Route exact path="/login" element={<LoginUsuarios/>} />
       <Route exact path="/perfil/:dpi/:token" element={<PerfilUsuarios/>} />
     </Routes>
