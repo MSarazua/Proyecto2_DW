@@ -5,12 +5,14 @@ export default function Carrito() {
   const [formData, setFormData] = useState({
     ProductoID: '',
     Cantidad: '',
+    userId:'',
   });
 
   const resetForm = () => {
     setFormData({
       ProductoID: '',
       Cantidad: '',
+      userId:'',
     });
   };
 
@@ -27,9 +29,10 @@ export default function Carrito() {
 
     try {
       // Realizar la llamada a la API utilizando Axios
-      const response = await Axios.post('http://localhost:3000/api/carrito', formData, {
+      const response = await Axios.post('http://localhost:3000/api/carrito/', formData, {
         headers: {
-          'Authorization': 'Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5ODg5OTQyNCwiZXhwIjoxNjk4OTAzMDI0fQ.vEl0h5gnoNWAzvlkgdtIkh9K2oRmoyseLjHuNFxW3AU>'
+    "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5ODkzOTk1NiwiZXhwIjoxNjk4OTQzNTU2fQ.MZejE5md9otto4aF1z1MC6oLVQ8PiJhSLR76GDzuE-g"
+            
         }
       });
       console.log('Respuesta de la API:', response.data);
@@ -43,8 +46,16 @@ export default function Carrito() {
 
   return (
     <div>
-      <h1>Carrito de compras</h1>
+      <h1>Agregar al carrito</h1>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="ProductoID">ID del usuario:</label>
+        <input
+          type="text"
+          name="userId"
+          value={formData.userId}
+          onChange={handleChange}
+          required
+        />
         <label htmlFor="ProductoID">ID del Producto:</label>
         <input
           type="text"
