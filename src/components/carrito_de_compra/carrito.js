@@ -1,70 +1,72 @@
 import React, { useState } from 'react';
-import Axios from 'axios'; // Asegúrate de importar Axio
+import Axios from 'axios';
 
 export default function Carrito() {
-    const [formData, setFormData] = useState({
-        id: '',
-        cantidad: '',
-       
-       
-      });
-    
-      const resetForm = () => {
-        setFormData({
-          id: '',
-          cantidad: '',
-      
-        });
-      };
-    
-      const [errorMessage, setErrorMessage] = useState('');
-      const [successMessage, setSuccessMessage] = useState('');
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        // Realizar la llamada a la API para agregar el producto al carrito
-        try {
-          // Realizar la llamada a la API utilizando Axios
-          const response = await Axios.post('http://localhost:3000/api/carrito', formData);
-          console.log('Respuesta de la API:', response.data);
-          setSuccessMessage('añadido al carrito exitosamente');
-          resetForm();
-        } catch (error) {
-          // Manejar errores de la llamada a la API
-          console.error('Error al llamar a la API:', error);
-          setErrorMessage('Error al registrar al usuario. Inténtelo de nuevo.');
+  const [formData, setFormData] = useState({
+    ProductoID: '',
+    Cantidad: '',
+  });
+
+  const resetForm = () => {
+    setFormData({
+      ProductoID: '',
+      Cantidad: '',
+    });
+  };
+
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Realizar la llamada a la API utilizando Axios
+      const response = await Axios.post('http://localhost:3000/api/carrito', formData, {
+        headers: {
+          'Authorization': 'Bearer <eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5ODg5OTQyNCwiZXhwIjoxNjk4OTAzMDI0fQ.vEl0h5gnoNWAzvlkgdtIkh9K2oRmoyseLjHuNFxW3AU>'
         }
-      };
-  return  (
+      });
+      console.log('Respuesta de la API:', response.data);
+      setSuccessMessage('Añadido al carrito exitosamente');
+      resetForm();
+    } catch (error) {
+      console.error('Error al llamar a la API:', error);
+      setErrorMessage('Error al agregar al carrito. Inténtelo de nuevo.');
+    }
+  };
+
+  return (
     <div>
-        
-        <h1>Carrito de compras</h1>
-        <form onSubmit={handleSubmit}>
+      <h1>Carrito de compras</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="ProductoID">ID del Producto:</label>
         <input
           type="text"
-          name="id"
-          placeholder="ID"
-          value={formData.id}
+          name="ProductoID"
+          value={formData.ProductoID}
           onChange={handleChange}
+          required
         />
-        <input
-          type="text"
-          name="cantidad"
-          placeholder="cantidad"
-          value={formData.cantidad}
-          onChange={handleChange}
-        />
+        <br />
 
-        <button type="submit">Agregar al carrito</button>
+        <label htmlFor="Cantidad">Cantidad:</label>
+        <input
+          type="number"
+          name="Cantidad"
+          value={formData.Cantidad}
+          onChange={handleChange}
+          required
+        />
+        <br />
+
+        <button type="submit">Agregar al Carrito</button>
       </form>
-
     </div>
-
-   
   );
-  
 }
