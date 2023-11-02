@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios'; // Asegúrate de importar Axios
+import './RegistroUsuarios.css'; // Importa tu archivo CSS
+import { Link } from 'react-router-dom'; 
 
 const RegistroUsuarios = () => {
   const [formData, setFormData] = useState({
@@ -80,9 +82,10 @@ const RegistroUsuarios = () => {
 
   return (
     <div className="registro-usuarios">
-      <h2>Registro de Usuarios</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className='text_h2'>Registro de Usuarios</h2>
+      <form className='formulario' onSubmit={handleSubmit}>
         <input
+          className='form_input'
           type="number"
           name="DPI"
           placeholder="DPI"
@@ -90,6 +93,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="text"
           name="Nombres"
           placeholder="Nombres"
@@ -97,6 +101,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="text"
           name="Apellidos"
           placeholder="Apellidos"
@@ -104,6 +109,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="date"
           name="FechaNacimiento"
           placeholder="Fecha de Nacimiento"
@@ -111,6 +117,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="password"
           name="Clave"
           placeholder="Contraseña"
@@ -118,6 +125,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="password"
           name="ValidacionClave"
           placeholder="Confirmar Contraseña"
@@ -125,6 +133,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="text"
           name="DireccionEntrega"
           placeholder="Dirección de Entrega"
@@ -132,6 +141,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="text"
           name="NIT"
           placeholder="NIT"
@@ -139,6 +149,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="text"
           name="NúmeroTelefonico"
           placeholder="Número Telefónico"
@@ -146,6 +157,7 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="email"
           name="CorreoElectronico"
           placeholder="Correo Electrónico"
@@ -153,13 +165,15 @@ const RegistroUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="text"
           name="Rol"
           placeholder="Rol"
           value={formData.Rol}
           onChange={handleChange}
         />
-        <button type="submit">Registrarse</button>
+        <button className='btn_registro' type="submit">Registrarse</button>
+        <Link className='btn_login' to="/login">Iniciar sesión</Link>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}

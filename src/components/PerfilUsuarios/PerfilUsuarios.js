@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { useParams, useLocation } from 'react-router-dom';
+import './PerfilUsuarios.css'; // Importa tu archivo CSS
 
 const PerfilUsuarios = () => {
 const { DPI } = useParams();
@@ -38,11 +39,15 @@ const [errorMessage, setErrorMessage] = useState('');
   }
 
   return (
-    <div>
-      <h2>Perfil de Usuario</h2>
-      <p>DPI: {user.DPI}</p>
-      <p>Nombres: {user.Nombres}</p>
-      {/* Agrega más campos según la estructura de tu usuario */}
+    <div className='perfil_usuarios'>
+      <h2 className='title_h2'>Perfil de Usuario</h2>
+      <p className='text_p'>DPI: {user.DPI}</p>
+      <p className='text_p'>Nombres: {user.Nombres}</p>
+      <p className='text_p'>Apellidos: {user.Apellidos}</p>
+      <p className='text_p'>Fecha de nacimiento: {user.FechaNacimiento}</p>
+      <p className='text_p'>Direccion de Entrega: {user.DireccionEntrega}</p>
+      <p className='text_p'>Nit: {user.NIT}</p>
+      <p className='text_p'>Número Telefonico: {user.NúmeroTelefonico}</p>
     </div>
   );
 };

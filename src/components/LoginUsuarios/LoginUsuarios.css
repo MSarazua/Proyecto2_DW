@@ -1,0 +1,39 @@
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text_h2 {
+    text-align: center;
+    color: #007bff;
+  }
+  
+  .btn_registro {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .form_input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  
+    .error-message {
+      color: red;
+    }
+  }

@@ -1,34 +1,52 @@
 .registro-usuarios {
-    max-width: 400px;
-    margin: 0 auto;
-  
-    h2 {
-      text-align: center;
-    }
-  
-    form {
-      display: flex;
-      flex-direction: column;
-  
-      input {
-        margin-bottom: 10px;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-  
-      button {
-        background-color: #007bff;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-  
-      .error-message {
-        color: red;
-      }
-    }
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.text_h2 {
+  text-align: center;
+  color: #007bff;
+}
+
+.btn_registro {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn_login {
+  background-color: rgb(235, 103, 103);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.form_input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+
+  .error-message {
+    color: red;
   }
-  
+}

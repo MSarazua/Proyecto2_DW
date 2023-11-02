@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './LoginUsuarios.css'; // Importa tu archivo CSS
 
 const LoginUsuarios = () => {
   const [formData, setFormData] = useState({
@@ -44,9 +45,10 @@ const LoginUsuarios = () => {
 
   return (
     <div className="login-form">
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className='text_h2'>Iniciar Sesión</h2>
+      <form className='formulario' onSubmit={handleSubmit}>
         <input
+          className='form_input'
           type="email"
           name="CorreoElectronico"
           placeholder="Correo Electrónico"
@@ -54,13 +56,14 @@ const LoginUsuarios = () => {
           onChange={handleChange}
         />
         <input
+          className='form_input'
           type="password"
           name="Clave"
           placeholder="Contraseña"
           value={formData.Clave}
           onChange={handleChange}
         />
-        <button type="submit">Iniciar Sesión</button>
+        <button className='btn_registro' type="submit">Iniciar Sesión</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}

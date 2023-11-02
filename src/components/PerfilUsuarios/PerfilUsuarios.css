@@ -1,0 +1,33 @@
+.perfil_usuarios {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+    h2 {
+      text-align: center;
+      color: #007bff;
+    }
+  
+    p {
+      margin: 5px 0;
+    }
+  
+    .error-message {
+      color: red;
+    }
+  }
+  .title_h2 {
+    text-align: center;
+    color: #007bff;
+  }
+
+  .text_p {
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+  }
