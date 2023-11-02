@@ -48,6 +48,7 @@ const [errorMessage, setErrorMessage] = useState('');
       <p className='text_p'>Direccion de Entrega: {user.DireccionEntrega}</p>
       <p className='text_p'>Nit: {user.NIT}</p>
       <p className='text_p'>Número Telefonico: {user.NúmeroTelefonico}</p>
+      <p className='text_p'> Correo Electrónico: {user.CorreoElectronico}</p>
     </div>
   );
 };
