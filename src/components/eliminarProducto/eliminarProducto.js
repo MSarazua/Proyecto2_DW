@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Axios from 'axios'; // Asegúrate de importar Axios
 import { Link } from 'react-router-dom'; 
 import './eliminarProductos.css'; // Importa tu archivo CSS
+import { useParams } from 'react-router-dom';
 
 const EliminarProducto = () => {
+
   const [formData, setFormData] = useState({
     Nombre: '',
     Marca: '',
@@ -32,21 +34,23 @@ const EliminarProducto = () => {
 
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
- 
+  
+  const { token} = useParams();
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    console.log(token)
     try {
         // Realizar la llamada a la API utilizando Axios
-        const response = await Axios.post('http://localhost:3000/api//Producto/:ID', formData, {
+        const response = await Axios.delete(`http://localhost:3000/api//Producto/1`, formData, {
           headers: {
-    "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5ODk1MTM1MCwiZXhwIjoxNjk4OTU0OTUwfQ.EVA2HzRHtKa1WMDOARYiIqqVDk5MswAe6ONWXmh3LDY"
+          "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5OTA0MzU3NywiZXhwIjoxNjk5MDQ3MTc3fQ.cQPntJWYIv4rdvbtAPyodUtUrB0i1_wB62XZvAtiJ2I"
               
           }
         });
@@ -70,7 +74,7 @@ const EliminarProducto = () => {
         className='form_input'
           type="text"
           name="Nombre"
-          placeholder="Nombre"
+          placeholder={Nombre}
           value={formData.Nombre}
           onChange={handleChange}
         /><br/>
@@ -137,7 +141,7 @@ const EliminarProducto = () => {
           <option value="false">Deshabilitado</option>
         </select>
 
-        <button type="submit">Guardar Producto</button>
+        <button type="submit">Eliminar Producto</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './LoginUsuarios.css'; // Importa tu archivo CSS
-
 const LoginUsuarios = () => {
   const [formData, setFormData] = useState({
     CorreoElectronico: '',
@@ -29,9 +28,12 @@ const LoginUsuarios = () => {
         setSuccessMessage('Inicio de sesión exitoso.');
         setErrorMessage('');
         const DPI = response.data.DPI;
-        const token = response.data.Token;
+        const _id = response.data._id;
+        console.log(response.data,"respuesta")
 
-        navigate(`/perfil/${DPI}/${token}`, { state: { token, dpi: DPI } });
+        const token = response.data.Token;
+        console.log(DPI)
+        navigate(`/perfil/${_id}/${token}`, { state: { token, dpi: DPI } });
         console.log(token)
 
       } else {

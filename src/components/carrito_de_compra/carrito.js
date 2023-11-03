@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export default function Carrito() {
+  const {token} = useParams();
+  const {id} = useParams();
+  console.log(token+" "+id)
   const [formData, setFormData] = useState({
     ProductoID: '',
     Cantidad: '',
@@ -26,12 +30,12 @@ export default function Carrito() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+   
     try {
       // Realizar la llamada a la API utilizando Axios
       const response = await Axios.post('http://localhost:3000/api/carrito/', formData, {
         headers: {
-    "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5ODkzOTk1NiwiZXhwIjoxNjk4OTQzNTU2fQ.MZejE5md9otto4aF1z1MC6oLVQ8PiJhSLR76GDzuE-g"
+    "Token": token
             
         }
       });
@@ -52,7 +56,6 @@ export default function Carrito() {
         <input
           type="text"
           name="userId"
-          value={formData.userId}
           onChange={handleChange}
           required
         />
@@ -60,7 +63,7 @@ export default function Carrito() {
         <input
           type="text"
           name="ProductoID"
-          value={formData.ProductoID}
+          value={id}
           onChange={handleChange}
           required
         />

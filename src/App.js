@@ -17,10 +17,10 @@ function App() {
       <Route exact path="/" element={<RegistroUsuarios/>} />
       <Route exact path="/login" element={<LoginUsuarios/>} />
       <Route exact path="/perfil/:dpi/:token" element={<PerfilUsuarios/>} />
-      <Route exact path="/carrito" element={<Carrito/>}/>
-      <Route exact path="/productos" element={<MostrarProductos/>}/>
+      <Route exact path="/carrito/:id/:token" element={<Carrito/>}/>
+      <Route exact path="/productos/:dpi/:token" element={<MostrarProductos/>}/>
       <Route exact path="/registrarProductos" element={<RegistrarProductos/>}/>
-      <Route exact path="/EliminarProductos" element={<EliminarProducto/>}/>
+      <Route exact path="/EliminarProductos/:ID/:token" element={<EliminarProducto/>}/>
       <Route exact path="/ModificarProductos" element={<ModificarProducto/>}/>
     </Routes>
   );

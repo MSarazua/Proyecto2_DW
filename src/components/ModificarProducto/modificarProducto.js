@@ -61,7 +61,8 @@ const ModificarProducto = () => {
 
    
   };
-
+  const ID = response.data.identificador;
+  console.log(ID)
   return (
     <div className="registro-usuarios">
       <h2 className='text_h2'>Modificar Producto</h2>
@@ -137,7 +138,7 @@ const ModificarProducto = () => {
           <option value="false">Deshabilitado</option>
         </select>
 
-        <button type="submit">Guardar Producto</button>
+        <button type="submit">Modificar Producto</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}

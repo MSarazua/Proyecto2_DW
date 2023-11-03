@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { useParams, useLocation } from 'react-router-dom';
 import './PerfilUsuarios.css'; // Importa tu archivo CSS
@@ -6,6 +7,7 @@ import './PerfilUsuarios.css'; // Importa tu archivo CSS
 const PerfilUsuarios = () => {
 const { DPI } = useParams();
 const location = useLocation();
+console.log(location)
 const { token, dpi } = location.state;
 const [user, setUser] = useState(null);
 const [errorMessage, setErrorMessage] = useState('');
@@ -49,6 +51,9 @@ const [errorMessage, setErrorMessage] = useState('');
       <p className='text_p'>Nit: {user.NIT}</p>
       <p className='text_p'>Número Telefonico: {user.NúmeroTelefonico}</p>
       <p className='text_p'> Correo Electrónico: {user.CorreoElectronico}</p>
+      <Link className='btn_login' to={`/productos/${dpi}/${token}`}>
+        Ver producto
+      </Link>
     </div>
   );
 };
