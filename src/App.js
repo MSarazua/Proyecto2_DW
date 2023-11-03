@@ -6,6 +6,9 @@ import PerfilUsuarios from './components/PerfilUsuarios/PerfilUsuarios';
 import Carrito from './components/carrito_de_compra/carrito';
 import { Route, Routes } from 'react-router-dom';
 import MostrarProductos from './components/productos/mostrarproductos';
+import RegistrarProductos from './components/RegistrarProductos/registrarProductos';
+import EliminarProducto from './components/eliminarProducto/eliminarProducto';
+import ModificarProducto from './components/ModificarProducto/modificarProducto';
 
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
       <Route exact path="/perfil/:dpi/:token" element={<PerfilUsuarios/>} />
       <Route exact path="/carrito" element={<Carrito/>}/>
       <Route exact path="/productos" element={<MostrarProductos/>}/>
+      <Route exact path="/registrarProductos" element={<RegistrarProductos/>}/>
+      <Route exact path="/EliminarProductos" element={<EliminarProducto/>}/>
+      <Route exact path="/ModificarProductos" element={<ModificarProducto/>}/>
     </Routes>
   );
 }

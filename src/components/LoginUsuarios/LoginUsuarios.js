@@ -32,6 +32,7 @@ const LoginUsuarios = () => {
         const token = response.data.Token;
 
         navigate(`/perfil/${DPI}/${token}`, { state: { token, dpi: DPI } });
+        console.log(token)
 
       } else {
         setSuccessMessage('');
