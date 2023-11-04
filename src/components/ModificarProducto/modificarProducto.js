@@ -61,8 +61,6 @@ const ModificarProducto = () => {
 
    
   };
-  const ID = response.data.identificador;
-  console.log(ID)
   return (
     <div className="registro-usuarios">
       <h2 className='text_h2'>Modificar Producto</h2>

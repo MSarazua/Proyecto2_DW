@@ -48,7 +48,7 @@ const RegistroUsuarios = () => {
         // Realizar la llamada a la API utilizando Axios
         const response = await Axios.post('http://localhost:3000/api/producto', formData, {
           headers: {
-    "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5ODk1MTM1MCwiZXhwIjoxNjk4OTU0OTUwfQ.EVA2HzRHtKa1WMDOARYiIqqVDk5MswAe6ONWXmh3LDY"
+    "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMyIsImlhdCI6MTY5OTA1NDk0MSwiZXhwIjoxNjk5MDU4NTQxfQ.dSSD5u9sGGKwLv3TlvGgeq6asD4V63ukdot3nWLsQnY"
               
           }
         });
@@ -69,7 +69,15 @@ const RegistroUsuarios = () => {
       <h2 className='text_h2'>Registro de Usuarios</h2>
       <form onSubmit={handleSubmit}>
         <input
-        className='form_input'
+          className='form_input'
+          type="text"
+          name="Identificador"
+          placeholder="Identificador"
+          value={formData.Identificador}
+          onChange={handleChange}
+        /><br/>
+        <input
+          className='form_input'
           type="text"
           name="Nombre"
           placeholder="Nombre"

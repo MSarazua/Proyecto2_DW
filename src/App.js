@@ -17,7 +17,7 @@ function App() {
       <Route exact path="/" element={<RegistroUsuarios/>} />
       <Route exact path="/login" element={<LoginUsuarios/>} />
       <Route exact path="/perfil/:dpi/:token" element={<PerfilUsuarios/>} />
-      <Route exact path="/carrito/:id/:token" element={<Carrito/>}/>
+      <Route exact path="/carrito/:id/:token/:dpi/:price" element={<Carrito/>}/>
       <Route exact path="/productos/:dpi/:token" element={<MostrarProductos/>}/>
       <Route exact path="/registrarProductos" element={<RegistrarProductos/>}/>
       <Route exact path="/EliminarProductos/:ID/:token" element={<EliminarProducto/>}/>

@@ -1,0 +1,55 @@
+/* Estilos para el contenedor del carrito */
+.cart-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para el formulario dentro del carrito */
+  .cart-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .cart-form input[type="number"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .cart-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .cart-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para mensajes de éxito y error */
+  .success-message {
+    color: #4caf50;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: #f44336;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

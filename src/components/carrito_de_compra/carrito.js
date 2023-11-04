@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './carrito.css'; // Importa tu archivo CSS
+
 
 export default function Carrito() {
   const {token} = useParams();
-  const {id} = useParams();
-  console.log(token+" "+id)
+  const { price } = useParams();
   const [formData, setFormData] = useState({
-    ProductoID: '',
-    Cantidad: '',
-    userId:'',
+    ProductoID: "654586e42038b1404128b478",
+    Cantidad: '1',
+    userId: "6541d00bc864cde53d2e4df5",
   });
 
   const resetForm = () => {
     setFormData({
       ProductoID: '',
       Cantidad: '',
-      userId:'',
+      userId: '',
     });
   };
 
@@ -35,8 +36,7 @@ export default function Carrito() {
       // Realizar la llamada a la API utilizando Axios
       const response = await Axios.post('http://localhost:3000/api/carrito/', formData, {
         headers: {
-    "Token": token
-            
+          "token": token
         }
       });
       console.log('Respuesta de la API:', response.data);
@@ -49,21 +49,20 @@ export default function Carrito() {
   };
 
   return (
-    <div>
+    <div className='cart-container'>
       <h1>Agregar al carrito</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="ProductoID">ID del usuario:</label>
+      <form className="cart-form" onSubmit={handleSubmit}>
         <input
-          type="text"
+          type="hidden"
           name="userId"
+          value="6541d00bc864cde53d2e4df5"
           onChange={handleChange}
           required
         />
-        <label htmlFor="ProductoID">ID del Producto:</label>
         <input
-          type="text"
+          type="hidden"
           name="ProductoID"
-          value={id}
+          value="654586e42038b1404128b478"
           onChange={handleChange}
           required
         />
@@ -78,7 +77,13 @@ export default function Carrito() {
           required
         />
         <br />
-
+        <input
+          type="number"
+          name="Precio"
+          value={price}
+          onChange={handleChange}
+          required
+        />
         <button type="submit">Agregar al Carrito</button>
       </form>
     </div>

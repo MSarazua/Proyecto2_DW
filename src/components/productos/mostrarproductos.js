@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 export default function MostrarProductos(props) {
 
   const [productos, setProductos] = useState([]);
-  const { token } = useParams();
+  const { token, dpi } = useParams();
   useEffect(() => {
     // Realizar la solicitud GET a la API para obtener todos los productos
     Axios.get('http://localhost:3000/api/Productos', {
@@ -39,15 +39,13 @@ export default function MostrarProductos(props) {
           <div className="product-brand">Marca: {producto.Marca}</div>
           <div className="product-price">${producto.PrecioDescuento}</div>
           <div className="product-brand">Cantidad en existencia {producto.Disponibilidad}</div>
-          <Link className='btn_login' to={`/carrito/${producto._id}/${token}`}>
-        Agregar al carrito
-      </Link>
+          <Link className='btn_login' to={`/carrito/${producto.Identificador}/${token}/${dpi}/${producto.PrecioDescuento}`}>
+            Agregar al carrito
+          </Link>
           <button className="add-to-cartModificar"><a href="/ModificarProductos">Modificar producto</a></button>
-          <button className="add-to-carteliminar"><a href="/EliminarProductos">Eliminar producto</a></button>
           <Link className='btn_login' to={`/EliminarProductos/${producto.Identificador}/${token}`}>
-        Eliminar producto
-      </Link>
-          
+            Eliminar producto
+          </Link>
         </li>
       ))}
     </ul>
