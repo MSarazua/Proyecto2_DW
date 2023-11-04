@@ -44,7 +44,7 @@ const ModificarProducto = () => {
     
     try {
         // Realizar la llamada a la API utilizando Axios
-        const response = await Axios.post('http://localhost:3000/api//Producto/:ID', formData, {
+        const response = await Axios.post('https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api//Producto/:ID', formData, {
           headers: {
     "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5ODk1MTM1MCwiZXhwIjoxNjk4OTU0OTUwfQ.EVA2HzRHtKa1WMDOARYiIqqVDk5MswAe6ONWXmh3LDY"
               

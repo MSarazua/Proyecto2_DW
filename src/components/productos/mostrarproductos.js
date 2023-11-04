@@ -10,7 +10,7 @@ export default function MostrarProductos(props) {
   const { token, dpi } = useParams();
   useEffect(() => {
     // Realizar la solicitud GET a la API para obtener todos los productos
-    Axios.get('http://localhost:3000/api/Productos', {
+    Axios.get('https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api/Productos', {
       headers: {
     "Token": token
         

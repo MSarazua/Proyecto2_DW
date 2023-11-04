@@ -69,7 +69,7 @@ const RegistroUsuarios = () => {
     // Realizar la llamada a la API para registrar al usuario
     try {
       // Realizar la llamada a la API utilizando Axios
-      const response = await Axios.post('http://localhost:3000/api/registro/10', formData);
+      const response = await Axios.post('https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api/registro/10', formData);
       console.log('Respuesta de la API:', response.data);
       setSuccessMessage('Usuario registrado exitosamente.');
       resetForm();

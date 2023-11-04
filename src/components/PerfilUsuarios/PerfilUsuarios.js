@@ -22,7 +22,7 @@ const [errorMessage, setErrorMessage] = useState('');
           },
         };
 
-        const response = await Axios.get(`http://localhost:3000/api/perfil/${dpi}`, config);
+        const response = await Axios.get(`https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api/perfil/${dpi}`, config);
         setUser(response.data);
       } catch (error) {
         setErrorMessage('No se pudo cargar el perfil del usuario.');

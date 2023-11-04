@@ -34,7 +34,7 @@ export default function Carrito() {
    
     try {
       // Realizar la llamada a la API utilizando Axios
-      const response = await Axios.post('http://localhost:3000/api/carrito/', formData, {
+      const response = await Axios.post('https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api/carrito/', formData, {
         headers: {
           "token": token
         }

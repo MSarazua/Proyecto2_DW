@@ -48,7 +48,7 @@ const EliminarProducto = () => {
     console.log(token)
     try {
         // Realizar la llamada a la API utilizando Axios
-        const response = await Axios.delete(`http://localhost:3000/api//Producto/1`, formData, {
+        const response = await Axios.delete(`https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api//Producto/1`, formData, {
           headers: {
           "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMSIsImlhdCI6MTY5OTA0MzU3NywiZXhwIjoxNjk5MDQ3MTc3fQ.cQPntJWYIv4rdvbtAPyodUtUrB0i1_wB62XZvAtiJ2I"
               

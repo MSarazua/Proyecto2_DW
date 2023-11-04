@@ -22,7 +22,7 @@ const LoginUsuarios = () => {
     e.preventDefault();
 
     try {
-      const response = await Axios.post('http://localhost:3000/api/login', formData);
+      const response = await Axios.post('https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api/login', formData);
 
       if (response.data.Token) {
         setSuccessMessage('Inicio de sesión exitoso.');

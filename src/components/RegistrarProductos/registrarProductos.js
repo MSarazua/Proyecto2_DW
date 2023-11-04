@@ -46,7 +46,7 @@ const RegistroUsuarios = () => {
     
     try {
         // Realizar la llamada a la API utilizando Axios
-        const response = await Axios.post('http://localhost:3000/api/producto', formData, {
+        const response = await Axios.post('https://proyecto-1-jose-alexander-maria-sarazua.onrender.com/api/producto', formData, {
           headers: {
     "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxMyIsImlhdCI6MTY5OTA1NDk0MSwiZXhwIjoxNjk5MDU4NTQxfQ.dSSD5u9sGGKwLv3TlvGgeq6asD4V63ukdot3nWLsQnY"
               
