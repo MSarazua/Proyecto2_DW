@@ -74,7 +74,6 @@ const EliminarProducto = () => {
         className='form_input'
           type="text"
           name="Nombre"
-          placeholder={Nombre}
           value={formData.Nombre}
           onChange={handleChange}
         /><br/>
